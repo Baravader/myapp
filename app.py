@@ -57,7 +57,7 @@ def hello():
 		cur.execute('''
 		INSERT INTO visits (visit_time, user_ip, user_agent)
 		VALUES (%s, %s, %s)
-		''', (datetime.now(),request.headers.get('X-Forwarded-For)'),'Flask App'))
+		''', (datetime.now(),request.headers.get('X-Forwarded-For'),'Flask App'))
 
 		conn.commit()
 		cur.close()
