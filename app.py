@@ -48,7 +48,7 @@ def hello():
 		cur = conn.cursor()
 
 		cur.execute('''
-		INSERT INT visits (visit_time, user_ip, user_agent)
+		INSERT INTO visits (visit_time, user_ip, user_agent)
 		VALUES (%s, %s, %s)
 		''', (datetime.now(),'0.0.0.0','Flask App'))
 
