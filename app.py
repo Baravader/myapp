@@ -12,7 +12,7 @@ DB_CONFIG = {
 	'host': 'localhost',
 	'port': 5432,
 	'database': 'myappdb',
-	'user': 'postgres',
+	'user': 'myappuser',
 	'password': '456'
 }
 
