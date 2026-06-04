@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from datetime import datetime
 import psycopg2
 import psycopg2.extras
@@ -41,8 +41,12 @@ def init_db():
 
 @app.route('/debug')
 def debug_headers():
-	print(request.__dict__)
-	return request.__dict__
+	return jsonify({
+		'remote_addr': request.remote_addr,
+		'headers': dict(request.headers),
+		'method': request.method,
+		'url': request.url
+	})
 
 @app.route('/')
 def hello():
