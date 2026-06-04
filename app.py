@@ -41,6 +41,7 @@ def init_db():
 
 @app.route('/debug')
 def debug_headers():
+	print(request.__dict__)
 	return f"<pre>{request.__dict__}</pre>"
 
 @app.route('/')
