@@ -43,8 +43,7 @@ def init_db():
 def debug_headers():
 	from flask import request
 	html = '<h3>Заголовки запроса</h3><ul>'
-	print(request)
-	print(request.remote_addr)
+	html += request.remote_addr + '\n' + request
 	return html
 
 @app.route('/')
