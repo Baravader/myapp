@@ -2,9 +2,7 @@ from flask import Flask
 from datetime import datetime
 import psycopg2
 import psycopg2.extras
-
-
-
+from flask import request
 
 app = Flask(__name__)
 
@@ -50,7 +48,7 @@ def hello():
 		cur.execute('''
 		INSERT INTO visits (visit_time, user_ip, user_agent)
 		VALUES (%s, %s, %s)
-		''', (datetime.now(),'0.0.0.0','Flask App'))
+		''', (datetime.now(),request.remote_addr,'Flask App'))
 
 		conn.commit()
 		cur.close()
