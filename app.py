@@ -39,6 +39,14 @@ def init_db():
 	except Exception as e:
 		print(f"Ошибка при создании таблицы:{e}")
 
+@app.route('/debug')
+def debug_headers():
+	from flask import request
+	html = '<h3>Заголовки запроса</h3><ul>'
+	print(request)
+	print(request.remote_addr)
+	return html
+
 @app.route('/')
 def hello():
 	try:
