@@ -62,7 +62,7 @@ def hello():
 		conn.commit()
 		cur.close()
 		conn.close()
-		return 'Hello,Devopser!Visit logged at {}'.format(datetime.now())
+		return 'Hello,Devopser!Visit logged at {}'.format(datetime.now()) + 'Your IP is {}'.format(request.headers.get('X-Forwarded-For'))
 	except Exception as e:
 		print(f"exception thrown:{e}")
 @app.route('/health')
