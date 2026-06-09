@@ -7,7 +7,7 @@ from flask import request
 app = Flask(__name__)
 
 DB_CONFIG = {
-	'host': 'localhost',
+	'host': 'host.docker.internal',
 	'port': 5432,
 	'database': 'myappdb',
 	'user': 'myappuser',
