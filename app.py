@@ -4,6 +4,7 @@ import os
 import psycopg2
 import psycopg2.extras
 from flask import request
+from werkzeug import user_agent
 
 app = Flask(__name__)
 
@@ -56,7 +57,7 @@ def hello():
 		cur.execute('''
 		INSERT INTO visits (visit_time, user_ip, user_agent)
 		VALUES (%s, %s, %s)
-		''', (datetime.now(),request.headers.get('X-Forwarded-For'),'Flask App'))
+		''', (datetime.now(),request.headers.get('X-Forwarded-For'),user_agent))
 
 		conn.commit()
 		cur.close()
