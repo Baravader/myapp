@@ -68,16 +68,20 @@ def hello():
 		print(f"exception thrown:{e}")
 @app.route('/health')
 def health():
-	try :
+	print("1. Запрос /health получен")
+	try:
+		print("2. Пытаюсь подключиться к БД")
 		conn = connect_db()
+		print("3. Подключение успешно")
 		cur = conn.cursor()
 		cur.execute('SELECT 1')
 		cur.close()
 		conn.close()
+		print("4. Запрос выполнен")
 		return 'OK'
 	except Exception as e:
-		print(f"Not OK:{e}")
-		return f"NOT OK,epta {e}<br>"
+		print('Not OK:{e}')
+		return f'NOT OK,epta {e}<br>', 500
 
 init_db()
 if __name__ == '__main__':
