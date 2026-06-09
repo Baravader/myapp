@@ -4,7 +4,7 @@ import os
 import psycopg2
 import psycopg2.extras
 from flask import request
-from werkzeug import user_agent
+from user_agents import parse
 
 app = Flask(__name__)
 
@@ -130,7 +130,7 @@ def show_visits():
                     <td>{visit[0]}</td>
                     <td>{visit[1]}</td>
                     <td><code>{visit[2]}</code></td>
-                    <td>{visit[3]}{'...' if len(visit[3]) > 50 else ''}</td>
+                    <td>{parse(visit[3]).browser.family}</td>
                 </tr>
             '''
 
