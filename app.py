@@ -1,21 +1,20 @@
 from flask import Flask, jsonify
 from datetime import datetime
+import os
 import psycopg2
 import psycopg2.extras
 from flask import request
 
 app = Flask(__name__)
 
-DB_CONFIG = {
-	'host': 'localhost',
-	'port': 5432,
-	'database': 'myappdb',
-	'user': 'myappuser',
-	'password': '456'
-}
-
 def connect_db():
-	return psycopg2.connect(**DB_CONFIG)
+	return psycopg2.connect(
+		host=os.getenv("DB_HOST"),
+		port=os.getenv("DB_PORT"),
+		database=os.getenv("POSTGRES_DB"),
+		user=os.getenv("POSTGRES_USER"),
+		password=os.getenv("POSTGRES_PASSWORD")
+	)
 
 def init_db():
 	try:
