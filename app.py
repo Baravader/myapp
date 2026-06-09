@@ -92,7 +92,6 @@ def show_visits():
             SELECT id, visit_time, user_ip, user_agent 
             FROM visits 
             ORDER BY id DESC 
-            LIMIT 100
         ''')
 		visits = cur.fetchall()
 		cur.close()
