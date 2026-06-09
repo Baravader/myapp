@@ -114,7 +114,7 @@ def show_visits():
         </head>
         <body>
             <h1>📊 Visit log</h1>
-            <div class="visits-count">📌 Total in this table: ''' + str(len(visits)) + ''' (last 100)</div>
+            <div class="visits-count">📌 Total in this table: ''' + str(len(visits)) + '''</div>
             <table>
                 <tr>
                     <th>ID</th>
@@ -130,7 +130,7 @@ def show_visits():
                     <td>{visit[0]}</td>
                     <td>{visit[1]}</td>
                     <td><code>{visit[2]}</code></td>
-                    <td>{visit[3][:50]}{'...' if len(visit[3]) > 50 else ''}</td>
+                    <td>{visit[3]}{'...' if len(visit[3]) > 50 else ''}</td>
                 </tr>
             '''
 
