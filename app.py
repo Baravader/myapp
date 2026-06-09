@@ -77,7 +77,7 @@ def health():
 		return 'OK'
 	except Exception as e:
 		print(f"Not OK:{e}")
-		return "NOT OK,epta<br>"
+		return "NOT OK,epta<br>"+ e.__dict__
 
 init_db()
 if __name__ == '__main__':
