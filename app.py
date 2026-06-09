@@ -57,7 +57,7 @@ def hello():
 		cur.execute('''
 		INSERT INTO visits (visit_time, user_ip, user_agent)
 		VALUES (%s, %s, %s)
-		''', (datetime.now(),request.headers.get('X-Forwarded-For'),request.headers.get('User-Agent', 'Unknown')))
+		''', (datetime.now(),request.headers.get('X-Forwarded-For'),parse(request.headers.get('User-Agent', 'Unknown')).browser.family))
 
 		conn.commit()
 		cur.close()
